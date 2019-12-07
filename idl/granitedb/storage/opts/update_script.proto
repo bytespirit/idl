@@ -1,0 +1,27 @@
+/*
+ * @Author: lipixun
+ * @Date: 2019-12-07 20:39:12
+ * @Last Modified by: lipixun
+ * @Last Modified time: 2019-12-07 20:42:01
+ */
+
+syntax = "proto3";
+
+package bytespirit.granitedb.storage.opts;
+
+// Update by lua script
+message UpdateByLua {
+  // The lua script
+  string script = 1;
+  // Open std library before executing the script
+  bool open_stdlib = 2;
+  // Cache the script engine or not
+  bool cache = 3;
+}
+
+//
+// The update script opt
+//
+message UpdateScriptOpt {
+  oneof script_opt { UpdateByLua lua = 1; }
+}

@@ -1,0 +1,31 @@
+/*
+ * @Author: lipixun
+ * @Date: 2019-12-07 17:17:30
+ * @Last Modified by: lipixun
+ * @Last Modified time: 2019-12-07 20:12:55
+ */
+
+syntax = "proto3";
+
+package bytespirit.granitedb.storage.opts;
+
+// Optimize for code size
+option optimize_for = CODE_SIZE;
+
+//
+// The put value
+//
+message UpdatePutValue {
+  // Binary data
+  bytes binary_data = 1;
+  // Column family
+  uint32 column_family = 2;
+}
+
+//
+// The update put opt
+//
+message UpdatePutOpt {
+  // Value(s)
+  repeated UpdatePutValue value = 1;
+}

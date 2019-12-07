@@ -1,0 +1,41 @@
+/*
+ * @Author: lipixun
+ * @Date: 2019-12-07 17:28:35
+ * @Last Modified by: lipixun
+ * @Last Modified time: 2019-12-07 19:26:09
+ */
+
+syntax = "proto3";
+
+package bytespirit.granitedb.storage;
+
+//
+// The read parameter
+//
+
+message ReadParam {
+  // Key(s) to read
+  repeated bytes key = 1;
+  // Column family to read
+  repeated uint32 column_family = 2;
+}
+
+//
+// The read value
+//
+message ReadValue {
+  // Binary data
+  bytes binary_data = 1;
+  // Column family
+  uint32 column_family = 2;
+}
+
+//
+// The read data
+//
+message ReadData {
+  // Key
+  bytes key = 1;
+  // Value(s)
+  repeated ReadValue value = 3;
+}

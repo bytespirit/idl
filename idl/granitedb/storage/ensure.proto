@@ -1,0 +1,45 @@
+/*
+ * @Author: lipixun
+ * @Date: 2019-12-08 00:13:56
+ * @Last Modified by: lipixun
+ * @Last Modified time: 2019-12-08 00:29:10
+ */
+
+syntax = "proto3";
+
+package bytespirit.granitedb.storage;
+
+import "idl/common/status.proto";
+
+//
+// The ensure options
+//
+message EnsureOptions {
+  // Expected number of acked instances
+  uint32 ack_no = 1;
+  // Max wait timeout in ms
+  uint32 timeout_ms = 2;
+}
+
+//
+// The ensure parameter
+//
+
+message EnsureParam {
+  // The key to ensure
+  bytes key = 1;
+  // Seq number which is returned by update
+  uint64 seq_no = 2;
+  // Ensure options
+  EnsureOptions options = 3;
+}
+
+//
+// The ensure ack
+//
+message EnsureAck {
+  // The status
+  Status status = 1;
+  // The number of acked instances
+  uint32 ack_no = 2;
+}

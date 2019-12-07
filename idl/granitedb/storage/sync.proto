@@ -1,0 +1,41 @@
+/*
+ * @Author: lipixun
+ * @Date: 2019-11-30 19:12:18
+ * @Last Modified by: lipixun
+ * @Last Modified time: 2019-12-07 19:50:24
+ */
+
+syntax = "proto3";
+
+package bytespirit.granitedb.storage;
+
+// Optimize for code size
+option optimize_for = CODE_SIZE;
+
+// The sync params
+message SyncParams {
+  // Sequence number to start sync
+  uint64 seq_no = 1;
+  // The sync batch size
+  uint32 batch_size = 2;
+  // The wait timeout in ms
+  uint32 wait_timeout_ms = 3;
+}
+
+//
+// The sync data
+//
+message SyncData {
+  // The sequence number of the latest data
+  uint64 seq_no = 1;
+  // The binary data
+  bytes binary_data = 2;
+}
+
+//
+// The sync acknowledgement
+//
+message SyncAck {
+  // The sequence number of the latest data
+  uint64 seq_no = 1;
+}

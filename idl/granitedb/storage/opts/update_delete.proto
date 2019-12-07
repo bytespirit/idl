@@ -1,0 +1,20 @@
+/*
+ * @Author: lipixun
+ * @Date: 2019-12-07 19:59:34
+ * @Last Modified by: lipixun
+ * @Last Modified time: 2019-12-07 20:02:56
+ */
+
+syntax = "proto3";
+
+package bytespirit.granitedb.storage.opts;
+
+//
+// The update delete opt
+//
+message UpdateDeleteOpt {
+  // Delete all column family or not
+  bool delete_all_column_family = 1;
+  // Column family to delete if not deleting all
+  repeated uint32 column_family = 2;
+}

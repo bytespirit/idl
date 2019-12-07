@@ -1,0 +1,16 @@
+/*
+ * @Author: lipixun
+ * @Date: 2019-12-07 20:18:59
+ * @Last Modified by: lipixun
+ * @Last Modified time: 2019-12-07 20:19:44
+ */
+
+syntax = "proto3";
+
+package bytespirit;
+
+message Status {
+  bool ok = 1;
+  int32 code = 2;
+  string message = 3;
+}

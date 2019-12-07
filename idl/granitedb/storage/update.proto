@@ -1,0 +1,53 @@
+/*
+ * @Author: lipixun
+ * @Date: 2019-12-07 17:17:30
+ * @Last Modified by: lipixun
+ * @Last Modified time: 2019-12-08 00:29:49
+ */
+
+syntax = "proto3";
+
+package bytespirit.granitedb.storage;
+
+import "idl/granitedb/storage/opts/update_put.proto";
+import "idl/granitedb/storage/opts/update_delete.proto";
+import "idl/granitedb/storage/opts/update_arithmetic.proto";
+import "idl/granitedb/storage/opts/update_script.proto";
+import "idl/granitedb/storage/ensure.proto";
+
+// The update opt
+message UpdateOpt {
+  // Key to update
+  bytes key = 1;
+  // Ensure options
+  EnsureOptions ensure = 2;
+  //
+  // Update opts
+  //
+  oneof update_opt_one_of {
+    // The put opt
+    opts.UpdatePutOpt put = 6;
+    // The delete opt
+    opts.UpdateDeleteOpt delete = 7;
+    // The arithmetic opt
+    opts.UpdateArithmeticOpt arithmetic = 8;
+    // The script opt
+    opts.UpdateScriptOpt script = 9;
+  }
+}
+
+// The update parameter
+message UpdateParam {
+  // Update opts
+  repeated UpdateOpt opts = 1;
+  // Sync option in rocksdb write options
+  bool sync = 2;
+}
+
+//
+// The update acknowledgement
+//
+message UpdateAck {
+  // Seq number
+  uint64 seq_no = 1;
+}
