@@ -2,12 +2,12 @@
  * @Author: lipixun
  * @Date: 2019-11-30 19:12:18
  * @Last Modified by: lipixun
- * @Last Modified time: 2019-12-07 19:50:24
+ * @Last Modified time: 2019-12-22 18:43:27
  */
 
 syntax = "proto3";
 
-package bytespirit.granitedb.storage;
+package bytespirit.idl.granitedb.storage;
 
 // Optimize for code size
 option optimize_for = CODE_SIZE;

@@ -2,12 +2,12 @@
  * @Author: lipixun
  * @Date: 2019-12-07 17:17:30
  * @Last Modified by: lipixun
- * @Last Modified time: 2019-12-07 20:12:55
+ * @Last Modified time: 2019-12-22 18:43:36
  */
 
 syntax = "proto3";
 
-package bytespirit.granitedb.storage.opts;
+package bytespirit.idl.granitedb.storage.opts;
 
 // Optimize for code size
 option optimize_for = CODE_SIZE;
@@ -19,7 +19,7 @@ message UpdatePutValue {
   // Binary data
   bytes binary_data = 1;
   // Column family
-  uint32 column_family = 2;
+  string column_family = 2;
 }
 
 //

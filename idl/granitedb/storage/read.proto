@@ -2,12 +2,12 @@
  * @Author: lipixun
  * @Date: 2019-12-07 17:28:35
  * @Last Modified by: lipixun
- * @Last Modified time: 2019-12-07 19:26:09
+ * @Last Modified time: 2019-12-22 18:43:22
  */
 
 syntax = "proto3";
 
-package bytespirit.granitedb.storage;
+package bytespirit.idl.granitedb.storage;
 
 //
 // The read parameter
@@ -17,7 +17,7 @@ message ReadParam {
   // Key(s) to read
   repeated bytes key = 1;
   // Column family to read
-  repeated uint32 column_family = 2;
+  repeated string column_family = 2;
 }
 
 //
@@ -27,7 +27,7 @@ message ReadValue {
   // Binary data
   bytes binary_data = 1;
   // Column family
-  uint32 column_family = 2;
+  string column_family = 2;
 }
 
 //

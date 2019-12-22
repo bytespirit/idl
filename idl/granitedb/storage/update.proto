@@ -2,13 +2,14 @@
  * @Author: lipixun
  * @Date: 2019-12-07 17:17:30
  * @Last Modified by: lipixun
- * @Last Modified time: 2019-12-08 00:29:49
+ * @Last Modified time: 2019-12-22 19:02:39
  */
 
 syntax = "proto3";
 
-package bytespirit.granitedb.storage;
+package bytespirit.idl.granitedb.storage;
 
+import "idl/common/status.proto";
 import "idl/granitedb/storage/opts/update_put.proto";
 import "idl/granitedb/storage/opts/update_delete.proto";
 import "idl/granitedb/storage/opts/update_arithmetic.proto";
@@ -22,9 +23,9 @@ message UpdateOpt {
   // Ensure options
   EnsureOptions ensure = 2;
   //
-  // Update opts
+  // Operators
   //
-  oneof update_opt_one_of {
+  oneof opt_oneof {
     // The put opt
     opts.UpdatePutOpt put = 6;
     // The delete opt
@@ -39,9 +40,13 @@ message UpdateOpt {
 // The update parameter
 message UpdateParam {
   // Update opts
-  repeated UpdateOpt opts = 1;
+  repeated UpdateOpt opt = 1;
   // Sync option in rocksdb write options
   bool sync = 2;
+  // Ignore error of some opts
+  bool ignore_error_opt = 3;
+  // Set the error detail
+  bool set_error_detail = 4;
 }
 
 //
@@ -50,4 +55,8 @@ message UpdateParam {
 message UpdateAck {
   // Seq number
   uint64 seq_no = 1;
+  // The index of error operators
+  repeated uint32 error_opt = 2;
+  // The error detail. In the same order as error_opt
+  repeated Status error_detail = 3;
 }

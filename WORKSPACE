@@ -19,6 +19,12 @@ http_archive(
 )
 
 http_archive(
+    name = "com_google_googletest",
+    strip_prefix = "googletest-master",
+    urls = ["https://github.com/google/googletest/archive/master.zip"],
+)
+
+http_archive(
     name = "com_google_protobuf",
     sha256 = "4f8e805825c53bbc3c9f6b6abc009b5b5679e4702bccfca1121c42ff5ec801c7",
     strip_prefix = "protobuf-3.11.1",

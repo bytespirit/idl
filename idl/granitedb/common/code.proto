@@ -1,0 +1,18 @@
+/*
+ * @Author: lipixun
+ * @Date: 2019-12-22 18:48:41
+ * @Last Modified by: lipixun
+ * @Last Modified time: 2019-12-22 21:33:27
+ */
+
+syntax = "proto3";
+
+package bytespirit.idl.granitedb;
+
+enum StatusCode {
+  OK = 0;               // OK
+  REQUIRE_KEY = 1;      // Require key
+  REQUIRE_SEQNO = 2;    // Require seq no
+  REQUIRE_COLUMN = 3;   // Require column
+  COLUMN_NOT_FOUND = 4; // Column family not found
+}

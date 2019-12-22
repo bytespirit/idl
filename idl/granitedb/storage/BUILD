@@ -32,6 +32,7 @@ proto_library(
     visibility = ["//visibility:public"],
     deps = [
         ":ensure_proto",
+        "//idl/common:status_proto",
         "//idl/granitedb/storage/opts:update_arithmetic_proto",
         "//idl/granitedb/storage/opts:update_delete_proto",
         "//idl/granitedb/storage/opts:update_put_proto",

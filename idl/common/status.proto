@@ -2,12 +2,12 @@
  * @Author: lipixun
  * @Date: 2019-12-07 20:18:59
  * @Last Modified by: lipixun
- * @Last Modified time: 2019-12-07 20:19:44
+ * @Last Modified time: 2019-12-22 18:42:59
  */
 
 syntax = "proto3";
 
-package bytespirit;
+package bytespirit.idl;
 
 message Status {
   bool ok = 1;
